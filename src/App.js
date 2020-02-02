@@ -8,7 +8,8 @@ import ProjectManagement from './ps/ProjectManagement.js'
 import InitiateProject from './ps/InitiateProject.js'
 import Downlines from './ps/Downlines.js'
 
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, Avatar } from 'antd';
+import { Row, Col } from 'antd';
 
 const { Header, Sider } = Layout;
 
@@ -16,8 +17,7 @@ class App extends React.Component {
 
   state = {
     collapsed: false,
-    showHome: true,
-    showProjectManagement: false,
+    page: Home,
   };
 
   toggle = () => {
@@ -28,23 +28,30 @@ class App extends React.Component {
 
   renderHome = () => {
     this.setState({
-      showHome: true,
-      showProjectManagement: false
+      page: Home
     });
+  }
+
+  renderInitiateProject = () => {
+    this.setState({
+      page: InitiateProject
+    }); 
   }
 
   renderProjectManagement = () => {
     this.setState({
-      showHome: false,
-      showProjectManagement: true
+      page: ProjectManagement
+    }); 
+  }
+
+  renderDownlines = () => {
+    this.setState({
+      page: Downlines
     }); 
   }
 
   renderPage = () => {
-    if(this.state.showHome)
-      return (<Home />);
-    else if(this.state.showProjectManagement)
-      return (<ProjectManagement />);
+    return(<this.state.page />);
   }
 
   render() {
@@ -57,7 +64,7 @@ class App extends React.Component {
               <Icon type="dashboard" />
               <span>Dashboard</span>
             </Menu.Item>
-            <Menu.Item key="2" >
+            <Menu.Item key="2" onClick={ this.renderInitiateProject }>
               <Icon type="tool" />
               <span>Initiate Project</span>
             </Menu.Item>
@@ -65,7 +72,7 @@ class App extends React.Component {
               <Icon type="setting" />
               <span>Proejct Management</span>
             </Menu.Item>
-            <Menu.Item key="4">
+            <Menu.Item key="4" onClick={ this.renderDownlines }>
               <Icon type="down" />
               <span>Downlines</span>
             </Menu.Item>
@@ -73,11 +80,20 @@ class App extends React.Component {
         </Sider>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>
-            <Icon
-              className="trigger"
-              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-              onClick={this.toggle}
-            />
+          <Row>
+            <Col span={6}>
+              <Icon
+                className="trigger"
+                type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                onClick={this.toggle}
+              />
+            </Col>
+            <Col span={6} offset={12}>
+              <div className="pull-right">
+                <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>U</Avatar>
+              </div>
+            </Col>
+          </Row>
           </Header>
           {this.renderPage()}
         </Layout>

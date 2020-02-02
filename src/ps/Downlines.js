@@ -12,7 +12,7 @@ class Downlines extends React.Component {
     render() {
         return (
             <Content className="container">
-                Initiate Project
+                Downlines
             </Content>
         );
     }
