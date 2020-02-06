@@ -2,21 +2,28 @@ import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
 import './index.css';
+import './custome.css';
 
 import Home from './ps/Home.js'
 import ProjectManagement from './ps/ProjectManagement.js'
 import InitiateProject from './ps/InitiateProject.js'
 import Downlines from './ps/Downlines.js'
 
-import { Layout, Menu, Icon, Avatar } from 'antd';
+import { Layout, Menu, Icon, Avatar, Popover } from 'antd';
 import { Row, Col } from 'antd';
 
 const { Header, Sider } = Layout;
+const content = (
+  <div>
+    <p>Profile</p>
+    <p>Log out</p>
+  </div>
+);
 
 class App extends React.Component {
 
   state = {
-    collapsed: false,
+    collapsed: true,
     page: Home,
   };
 
@@ -90,7 +97,9 @@ class App extends React.Component {
             </Col>
             <Col span={6} offset={12}>
               <div className="pull-right">
-                <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>U</Avatar>
+                <Popover content={content} title="Krishanu Bhattacharya" placement="bottom">
+                  <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>K</Avatar>
+                </Popover>
               </div>
             </Col>
           </Row>

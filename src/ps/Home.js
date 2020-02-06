@@ -3,16 +3,55 @@ import '../App.css';
 import 'antd/dist/antd.css';
 import '../index.css';
 
-import { Layout } from 'antd';
+import SimpleStat from '../stats/SimpleStats.js'
+
+import { Layout, Card, Icon, Avatar } from 'antd';
+import { Row, Col } from 'antd';
 
 const { Content } = Layout;
+const { Meta } = Card;
 
 class Home extends React.Component {
 
     render() {
         return (
             <Content className="container">
-                Home
+                <Row gutter={16} type="flex">
+                    <Col xs={24} sm={12} md={8} lg={6}>
+                        <Card
+                            cover={
+                            <img
+                                alt="example"
+                                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                            />
+                            }
+                            actions={[
+                            <Icon type="setting" key="setting" />,
+                            <Icon type="edit" key="edit" />,
+                            <Icon type="ellipsis" key="ellipsis" />,
+                            ]}
+                        >
+                            <Meta
+                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
+                            title="Card title"
+                            description="This is the description"
+                            />
+                        </Card>
+                    </Col>
+                    <Col xs={24} sm={12} md={8} lg={6}>
+                        <Card
+                            hoverable
+                            cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
+                        >
+                            <Meta title="Europe Street beat" description="www.instagram.com" />
+                        </Card>
+                    </Col>
+                    <Col xs={24} sm={12} md={8} lg={6}>
+                        <Card>
+                            <SimpleStat />
+                        </Card>
+                    </Col>
+                </Row>
             </Content>
         );
     }
