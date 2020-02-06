@@ -16,8 +16,8 @@ class Home extends React.Component {
     render() {
         return (
             <Content className="container">
-                <Row gutter={16}>
-                    <Col span={6}>
+                <Row gutter={16} type="flex">
+                    <Col xs={24} sm={12} md={8} lg={6}>
                         <Card
                             cover={
                             <img
@@ -38,7 +38,7 @@ class Home extends React.Component {
                             />
                         </Card>
                     </Col>
-                    <Col span={6}>
+                    <Col xs={24} sm={12} md={8} lg={6}>
                         <Card
                             hoverable
                             cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
@@ -46,7 +46,7 @@ class Home extends React.Component {
                             <Meta title="Europe Street beat" description="www.instagram.com" />
                         </Card>
                     </Col>
-                    <Col span={8}>
+                    <Col xs={24} sm={12} md={8} lg={6}>
                         <Card>
                             <SimpleStat />
                         </Card>

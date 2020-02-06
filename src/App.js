@@ -23,7 +23,7 @@ const content = (
 class App extends React.Component {
 
   state = {
-    collapsed: false,
+    collapsed: true,
     page: Home,
   };
 
