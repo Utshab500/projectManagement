@@ -23,7 +23,7 @@ const content = (
 class App extends React.Component {
 
   state = {
-    collapsed: true,
+    collapsed: false,
     page: Home,
   };
 
@@ -96,7 +96,7 @@ class App extends React.Component {
               />
             </Col>
             <Col span={6} offset={12}>
-              <div className="pull-right">
+              <div className="pull-right padding-right-2rem">
                 <Popover content={content} title="Krishanu Bhattacharya" placement="bottom">
                   <Avatar style={{ color: '#f56a00', backgroundColor: '#fde3cf' }}>K</Avatar>
                 </Popover>
