@@ -30,3 +30,7 @@
 .align-center {
     text-align: center;
 }
+
+.chart-heights-200 {
+    height: 200px;
+}

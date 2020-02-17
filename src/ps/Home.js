@@ -3,7 +3,9 @@ import '../App.css';
 import 'antd/dist/antd.css';
 import '../index.css';
 
-import SimpleStat from '../stats/SimpleStats.js'
+import LineChart from '../charts/LineChart.js'
+import Donut from '../charts/Donut.js'
+import Basiccolumn from '../charts/Basiccolumn.js'
 
 import { Layout, Card, Icon, Avatar } from 'antd';
 import { Row, Col } from 'antd';
@@ -17,40 +19,23 @@ class Home extends React.Component {
         return (
             <Content className="container">
                 <Row gutter={16} type="flex">
-                    <Col xs={24} sm={12} md={8} lg={6}>
-                        <Card
-                            cover={
-                            <img
-                                alt="example"
-                                src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                            />
-                            }
-                            actions={[
-                            <Icon type="setting" key="setting" />,
-                            <Icon type="edit" key="edit" />,
-                            <Icon type="ellipsis" key="ellipsis" />,
-                            ]}
-                        >
-                            <Meta
-                            avatar={<Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />}
-                            title="Card title"
-                            description="This is the description"
-                            />
+                    <Col xs={24} sm={24} md={24} lg={14}>
+                        <Card title="Growth">
+                            <LineChart />
                         </Card>
                     </Col>
-                    <Col xs={24} sm={12} md={8} lg={6}>
-                        <Card
-                            hoverable
-                            cover={<img alt="example" src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" />}
-                        >
-                            <Meta title="Europe Street beat" description="www.instagram.com" />
+                    <Col xs={24} sm={24} md={24} lg={10}>
+                        <Card title="Trends">
+                            <Donut />
                         </Card>
                     </Col>
-                    <Col xs={24} sm={12} md={8} lg={6}>
-                        <Card>
-                            <SimpleStat />
+                </Row>
+                <Row className="padding-top-2rem" gutter={16} type="flex">
+                    <Col xs={24} sm={24} md={24} lg={24}>
+                        <Card title="Statistics">
+                            <Basiccolumn />
                         </Card>
-                    </Col>
+                    </Col>                    
                 </Row>
             </Content>
         );
